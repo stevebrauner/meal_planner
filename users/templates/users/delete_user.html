@@ -1,0 +1,20 @@
+{% extends "meal_plans/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+  <h2>Delete User Account</h2>
+{% endblock page_header %}
+
+{% block content %}
+  <h3>
+    <p>Are you sure you want to delete your user account? This will
+      permanently delete your profile and any content you have
+      generated.</p>
+    <p><a href="{% url 'meal_plans:index' %}" class="btn btn-secondary">Cancel</a></p>
+  </h3>
+  <form method="post" action="{% url 'users:delete_user' %}" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button "Delete user account" button_type="submit" button_class="btn-danger" %}
+  </form>
+{% endblock content %}

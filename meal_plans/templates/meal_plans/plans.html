@@ -1,0 +1,22 @@
+{% extends "meal_plans/base.html" %}
+
+{% block page_header %}
+  <h1>Plans</h1>
+{% endblock page_header %}
+
+{% block content %}
+  <div class="card mb-3">
+    <h4 class="card-header">
+      <a href="{% url 'meal_plans:new_plan' %}">Add a new plan</a>
+    </h4>
+    <div class="card-body">
+      <h3>
+        {% for plan in plans %}
+          <p><a href="{% url 'meal_plans:plan' plan.id %}">{{ plan.date|date:"l, F d, Y" }}</a></p>
+        {% empty %}
+          <p>No plans have been added yet.</p>
+        {% endfor %}
+      </h3>
+    </div>
+  </div>
+{% endblock content %}

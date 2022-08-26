@@ -1,0 +1,19 @@
+{% extends "meal_plans/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+  <h2>Delete plan</h2>
+{% endblock page_header %}
+
+{% block content %}
+  <h3>
+    <p>You are about to delete the plan {{ plan.date|date:"l, F d, Y" }}.
+    This cannot be undone.</p>
+    <p><a href="{% url 'meal_plans:plan' plan.id %}" class="btn btn-secondary">Cancel</a></p>
+  </h3>
+  <form method="post" action="{% url 'meal_plans:delete_plan' plan.id %}" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button "Delete plan" button_type="submit" button_class="btn-danger" %}
+  </form>
+{% endblock content %}

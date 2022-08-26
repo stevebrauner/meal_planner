@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "meal_planner"
+version = "0.1.0"
+description = "Django based Meal Planner WebApp."
+authors = ["Steve Brauner <steve.brauner@icloud.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "3.9.*"
+Django = "^4.1"
+django-bootstrap5 = "^22.1"
+django-bootstrap-datepicker-plus = "^4.0.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+isort = "^5.10.1"
+flake8 = "^4.0.1"
+mypy = "^0.971"
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+pre-commit = "^2.20.0"
+jedi = "^0.18.1"
+pytest-django = "^4.5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

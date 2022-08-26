@@ -1,0 +1,14 @@
+{% extends "meal_plans/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+  <div class="jumbotron">
+    <h1 class="display-5">Plan your meals.</h1>
+    <p class="lead">Planning meals has never been easier. Add plans by date for breakfast, lunch, dinner, and even a snack.</p>
+    {% if user.is_authenticated %}
+      <a class="btn btn-lg btn-primary" href="{% url 'meal_plans:plans' %}" role="button">Your Plans &raquo;</a>
+    {% else %}
+      <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">Register &raquo;</a>
+    {% endif %}
+  </div>
+{% endblock page_header %}

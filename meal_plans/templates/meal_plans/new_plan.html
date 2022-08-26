@@ -1,0 +1,18 @@
+{% extends "meal_plans/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block extra_head %}
+  {{ form.media }}
+{% endblock extra_head %}
+
+{% block page_header %}
+  <h2>Add a new plan:</h2>
+{% endblock page_header %}
+
+{% block content %}
+  <form method="post" action="{% url 'meal_plans:new_plan' %}" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button "Add plan" button_type="submit" button_class="btn-primary" %}
+  </form>
+{% endblock content %}

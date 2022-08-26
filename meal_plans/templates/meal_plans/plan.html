@@ -1,0 +1,23 @@
+{% extends "meal_plans/base.html" %}
+
+{% block page_header %}
+  <h1>Plan Details</h1>
+{% endblock page_header %}
+
+{% block content %}
+  <div class="card mb-3">
+    <h2 class="card-header">
+      {{ plan.date|date:"l, F d, Y" }}
+      <a class="btn btn-sm btn-primary" href="{% url 'meal_plans:edit_plan' plan.id %}">Edit plan</a>
+    </h2>
+    <div class="card-body">
+      <h4>
+        <p>Breakfast -- {{ plan.breakfast|default:"no meal added yet" }}</p>
+        <p>Lunch -- {{ plan.lunch|default:"no meal added yet" }}</p>
+        <p>Dinner -- {{ plan.dinner|default:"no meal added yet" }}</p>
+        <p>Snack -- {{ plan.snack|default:"no meal added yet" }}</p>
+      </h4>
+      <p><a class="btn btn-sm btn-danger" href="{% url 'meal_plans:delete_plan' plan.id %}">Delete plan</a></p>
+    </div>
+  </div>
+{% endblock content %}
