@@ -2,7 +2,7 @@
 
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import DeletePlanForm, PlanForm
 from .models import Plan
@@ -21,7 +21,7 @@ def plans(request):
 
 @login_required
 def plan(request, plan_id):
-    plan = Plan.objects.get(id=plan_id)
+    plan = get_object_or_404(Plan, id=plan_id)
     check_plan_owner(request, plan)
     context = {"plan": plan}
     return render(request, "meal_plans/plan.html", context)
@@ -45,7 +45,7 @@ def new_plan(request):
 
 @login_required
 def edit_plan(request, plan_id):
-    plan = Plan.objects.get(id=plan_id)
+    plan = get_object_or_404(Plan, id=plan_id)
     check_plan_owner(request, plan)
 
     if request.method != "POST":
@@ -62,7 +62,7 @@ def edit_plan(request, plan_id):
 
 @login_required
 def delete_plan(request, plan_id):
-    plan = Plan.objects.get(id=plan_id)
+    plan = get_object_or_404(Plan, id=plan_id)
     check_plan_owner(request, plan)
 
     if request.method != "POST":
