@@ -1,4 +1,5 @@
 .DS_Store
+.env
 .python-version
 .mypy_cache/
 poetry.lock
