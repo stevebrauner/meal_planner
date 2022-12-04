@@ -19,4 +19,4 @@ The database will need to track plans by owner (user).
 
 Each plan will have breakfast, lunch, dinner, and other meals.
 
-Each meal will have a title and optional description.
+Each meal will have a title/description.
