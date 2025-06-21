@@ -4,13 +4,11 @@ This is a Django based app that allows users to plan their meals.
 
 As stated on the home page: Plan your meals. Planning meals has never been easier. Add plans by date for breakfast, lunch, dinner, and even a snack.
 
-See a live demo at <a href="https://stevebrauner.pythonanywhere.com">https://stevebrauner.pythonanywhere.com</a>.
-
 ##Install
 
 1. clone repo
 2. create virtual exvironment via poetry or requirements.txt
-3.  Copy .env.dist to .env and make changes
+3. Copy .env.dist to .env and make changes
 
 **Set secret key**
 export SECRET_KEY=<your secret key value>
